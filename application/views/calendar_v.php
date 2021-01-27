@@ -16,9 +16,9 @@
 
 <table>
 	<tr>
-		<th colspan="2" class="prev_btn">◀◀</th>
+		<th colspan="2" class="prev_btn"><a href="/calendar/cal/<?php echo $prev_year;?>/<?php echo $prev_month;?>">◀◀</a></th>
 		<th colspan="3"><?php echo $year .".".$month;?></th>
-		<th colspan="2" class="next_btn">▶▶</th>
+		<th colspan="2" class="next_btn"><a href="/calendar/cal/<?php echo $next_year;?>/<?php echo $next_month;?>">▶▶</a></th>
 	</tr>
 	<tr>
 		<th>Sun</th>

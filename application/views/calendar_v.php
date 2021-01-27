@@ -17,7 +17,7 @@
 <table>
 	<tr>
 		<th colspan="2" class="prev_btn">◀◀</th>
-		<th colspan="3"><?php echo $thisyear .".".$thismonth;?></th>
+		<th colspan="3"><?php echo $year .".".$month;?></th>
 		<th colspan="2" class="next_btn">▶▶</th>
 	</tr>
 	<tr>
@@ -29,6 +29,7 @@
 		<th>Fri</th>
 		<th>Sat</th>
 	</tr>
+
 	<?php for($i=1;$i<=$total_week;$i++){?>
 		<tr>
 			<?php for($j=0;$j<7;$j++){?>
@@ -48,7 +49,7 @@
 						}
 
 						// 12. 오늘 날짜면 굵은 글씨
-						if ($day == date("j")) {
+						if ( ($year ==  date('Y') && $month ==  date('m')) && $day == date("j") ) {
 							// 13. 날짜 출력
 							echo '<span style="font-weight:bold; '.$style.'">';
 							echo $day;

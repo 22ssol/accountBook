@@ -10,6 +10,7 @@
 </head>
 
 <style>
+	a{text-decoration:none;color:black;}
 	table{ border-collapse: collapse;float: left;}
 	th,td{border: 1px solid #1f1d1d;padding:10px;}
 </style>

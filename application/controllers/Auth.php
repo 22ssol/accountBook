@@ -15,28 +15,12 @@ class auth extends CI_Controller {
 	}
 
 	public function index() {
-	//	$this -> load -> view('login_v');
-		$this -> test();
-	//	$this -> load -> view('header_v');
-	}
-
-	public function _remap($method) {
-		$this -> load -> view('header_v');
-
-		if (method_exists($this, $method)) {
-			$this -> {"{$method}"}();
-		}
-
-		$this -> load -> view('header_v');
+		$this -> login();
 	}
 
 	/**
 	 * 로그인 처리
 	 */
-	public function test() {
-
-		echo "test";
-	}
 	public function login() {
 		$this -> load -> library('form_validation');
 
@@ -57,8 +41,7 @@ class auth extends CI_Controller {
 
 			if ($result) {
 				$newdata = array(
-					'username' => $result -> username,
-					'email' => $result -> email,
+					'username' => $result -> name,
 					'logged_in' => TRUE
 				);
 

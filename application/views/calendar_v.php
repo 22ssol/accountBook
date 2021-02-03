@@ -12,31 +12,32 @@
 <style>
 	a{text-decoration:none;color:black;}
 	table{ border-collapse: collapse;float: left;width:70%;}
-	th,td{border: 1px solid #1f1d1d;padding:10px;}
-	th{width:}
+	.table_top{height: 30px;}
+	th,td{border: 1px solid #1f1d1d;padding:10px;height:80px;}
+	td{width: 14%;}
 </style>
 
 
 <table>
 	<tr>
-		<th colspan="2" class="prev_btn"><a href="/calendar/cal/<?php echo $prev_year;?>/<?php echo $prev_month;?>">◀◀</a></th>
-		<th colspan="3"><?php echo $year .".".$month;?></th>
-		<th colspan="2" class="next_btn"><a href="/calendar/cal/<?php echo $next_year;?>/<?php echo $next_month;?>">▶▶</a></th>
+		<th colspan="2" class="prev_btn table_top"><a href="/calendar/cal/<?php echo $prev_year;?>/<?php echo $prev_month;?>">◀◀</a></th>
+		<th colspan="3" class="table_top"><?php echo $year .".".$month;?></th>
+		<th colspan="2" class="next_btn table_top"><a href="/calendar/cal/<?php echo $next_year;?>/<?php echo $next_month;?>">▶▶</a></th>
 	</tr>
 	<tr>
-		<th>Sun</th>
+		<th style="color: red;">Sun</th>
 		<th>Mon</th>
 		<th>Tue</th>
 		<th>Wed</th>
 		<th>Thu</th>
 		<th>Fri</th>
-		<th>Sat</th>
+		<th style="color: #0000FF">Sat</th>
 	</tr>
 
 	<?php for($i=1;$i<=$total_week;$i++){?>
 		<tr>
 			<?php for($j=0;$j<7;$j++){?>
-				<td>
+				<td valign="top">
 					<?php
 					if (!(($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))) {
 						if ($j == 0) {
@@ -61,7 +62,7 @@
 						if ( ($year ==  date('Y') && $month ==  date('m')) && $day == date("j") ) {
 							// 13. 날짜 출력
 							echo '<span style="font-weight:bold; '.$style.'">';
-							echo $day;
+							echo $day." Today";
 							echo '</span>';
 						} else {
 							echo '<span style='.$style.'>';

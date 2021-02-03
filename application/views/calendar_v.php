@@ -15,6 +15,7 @@
 	th,td{border: 1px solid #1f1d1d;padding:10px;}
 </style>
 
+
 <table>
 	<tr>
 		<th colspan="2" class="prev_btn"><a href="/calendar/cal/<?php echo $prev_year;?>/<?php echo $prev_month;?>">◀◀</a></th>

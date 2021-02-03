@@ -11,18 +11,10 @@
 
 <style>
 	a{text-decoration:none;color:black;}
-	table{ border-collapse: collapse;float: left;}
+	table{ border-collapse: collapse;float: left;width:70%;}
 	th,td{border: 1px solid #1f1d1d;padding:10px;}
+	th{width:}
 </style>
-
-
-<?php
-
-foreach ($list as $item){
-	echo $item['holiday_date']. " ". $item['holiday_name']."<br>";
-}
-
-?>
 
 
 <table>
@@ -46,7 +38,6 @@ foreach ($list as $item){
 			<?php for($j=0;$j<7;$j++){?>
 				<td>
 					<?php
-
 					if (!(($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))) {
 						if ($j == 0) {
 							// 9. $j가 0이면 일요일이므로 빨간색
@@ -59,6 +50,13 @@ foreach ($list as $item){
 							$style = "black";
 						}
 
+						foreach ($holiday_list['list'] as $item) {
+							if ($month . sprintf('%02d', $day) == $item['holiday_date']) {
+								$style = "color:red;font-weight:bold;";
+							}
+						}
+
+
 						// 12. 오늘 날짜면 굵은 글씨
 						if ( ($year ==  date('Y') && $month ==  date('m')) && $day == date("j") ) {
 							// 13. 날짜 출력
@@ -70,6 +68,16 @@ foreach ($list as $item){
 							echo $day;
 							echo '</span>';
 						}
+
+						foreach ($holiday_list['list'] as $item){
+
+							if($month.sprintf('%02d',$day) == $item['holiday_date']){
+								echo '<span style="font-weight:bold; '.$style.'">';
+								echo "<br>".$item['holiday_name'];
+								echo '</span>';
+							}
+						}
+
 						// 14. 날짜 증가
 						$day++;
 					}

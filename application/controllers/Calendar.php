@@ -14,17 +14,20 @@ class calendar extends CI_Controller
 	public function index()
 	{
 
+		$this->cal();
 	}
 
-	public function holiday(){
+	private function holiday(){ // private 함수 선언해서 내가 일반적으로 생각하는 함수.
 		$result['list'] = $this->calendar_model->holiday_date(); //model에서 결과값을 배열로 보냄
 
-		$this->load->view('calendar_v', $result);
-		//print_r($result);
+		return $result;
+
 	}
 
 	public function cal($year = 0, $month = 0)
 	{
+
+		$result['list'] = $this->holiday();
 
 		$thisyear = date('Y');
 		$thismonth = date('m');
@@ -83,9 +86,9 @@ class calendar extends CI_Controller
 			'prev_month' => $prev_month,
 			'next_month' => $next_month,
 			'prev_year' => $prev_year,
-			'next_year' => $next_year
+			'next_year' => $next_year,
+			'holiday_list' => $result['list']
 		);
-
 
 		$this->load->view('calendar_v', $calendar_data);
 

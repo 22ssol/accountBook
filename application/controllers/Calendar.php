@@ -13,8 +13,14 @@ class calendar extends CI_Controller
 
 	public function index()
 	{
-		$result = $this->calendar_model->test();
-		print_r($result);
+
+	}
+
+	public function holiday(){
+		$result['list'] = $this->calendar_model->holiday_date(); //model에서 결과값을 배열로 보냄
+
+		$this->load->view('calendar_v', $result);
+		//print_r($result);
 	}
 
 	public function cal($year = 0, $month = 0)
@@ -79,6 +85,8 @@ class calendar extends CI_Controller
 			'prev_year' => $prev_year,
 			'next_year' => $next_year
 		);
+
+
 		$this->load->view('calendar_v', $calendar_data);
 
 	}

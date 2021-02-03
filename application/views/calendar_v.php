@@ -16,6 +16,15 @@
 </style>
 
 
+<?php
+
+foreach ($list as $item){
+	echo $item['holiday_date']. " ". $item['holiday_name']."<br>";
+}
+
+?>
+
+
 <table>
 	<tr>
 		<th colspan="2" class="prev_btn"><a href="/calendar/cal/<?php echo $prev_year;?>/<?php echo $prev_month;?>">◀◀</a></th>

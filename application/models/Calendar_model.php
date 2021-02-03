@@ -7,7 +7,7 @@ class calendar_model extends CI_Model
 		parent::__construct();
 	}
 
-	function test()
+	function holiday_date()
 	{
 		$sql = 'select * from holiday';
 		$query = $this->db->query($sql);

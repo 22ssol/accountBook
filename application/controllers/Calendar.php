@@ -92,5 +92,14 @@ class calendar extends CI_Controller
 
 	}
 
+	public function insert(){
+
+		$this->calendar_model->price_insert();
+
+		$result = $this->calendar_model->price_list();
+		print_r($result);
+
+	}
+
 
 }

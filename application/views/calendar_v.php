@@ -15,6 +15,9 @@
 	.table_top{height: 30px;}
 	th,td{border: 1px solid #1f1d1d;padding:10px;height:80px;}
 	td{width: 14%;}
+	.list_div{margin:10px;float:left}
+	.btn_list{padding: 10px; border:1px solid #CCCCCC;}
+	.btn_list:hover{background-color: #FF9999; border:1px solid #FF9999;color:#fff;}
 </style>
 
 
@@ -93,3 +96,7 @@
 
 
 </table>
+
+<div class="list_div"><a href="/calendar/priceList" class="btn_list">목록보기</a></div>
+
+

@@ -96,16 +96,20 @@ class calendar extends CI_Controller
 	{
 		$result['list'] = $this->calendar_model->price_list();
 
-		$this->load->view('list', $result);
+		$this->load->view('list_v', $result);
+		//$this->load->view('insert_v');
 	}
 
-	public function insert()
-	{ // 내용 추가
+	public function insert($name,$date,$price,$etc=null){
+		$insert_db = array(
+			'name' => $name,
+			'date' => $date,
+			'price' => $price,
+			'etc' => $etc
+		);
 
-		$this->calendar_model->price_insert();
-
-//		$result = $this->calendar_model->price_list();
-//		print_r($result2);
+		$result = $this->calendar_model->price_list($insert_db);
+		print_r($result);
 
 	}
 

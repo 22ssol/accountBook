@@ -15,24 +15,24 @@ class calendar_model extends CI_Model
 	}
 
 	function price_list()
-	{
+	{ //목록보기
 		$sql = 'select * from price_tb';
 		$query = $this->db->query($sql);
 		return $query->result_array();
 	}
 
-	function price_insert()
-	{ // 입력
-		$sql = "INSERT INTO price_tb (name, date, price) VALUES ('이름','2021-02-17', '5000');";
+	function price_insert($name,$date,$price,$etc=null)
+	{ // 정보 입력
+		$sql = "INSERT INTO price_tb (name, date, price, etc) VALUES ($name,$date, $price,$etc);";
 
 		$query = $this->db->query($sql);
 		return $query;
 
 	}
 
-	function price_delete()
-	{ // 삭제
-		$sql = "delete from price_tb where name='이름';";
+	function price_delete($name)
+	{ // 정보 삭제
+		$sql = "delete from price_tb where name='$name';";
 
 		$query = $this->db->query($sql);
 		return $query;

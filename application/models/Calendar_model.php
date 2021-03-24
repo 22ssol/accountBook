@@ -21,22 +21,21 @@ class calendar_model extends CI_Model
 		return $query->result_array();
 	}
 
-	function price_insert($name,$date,$price,$etc=null)
+/*	function price_insert($name,$date,$price,$etc=null)
 	{ // 정보 입력
 		$sql = "INSERT INTO price_tb (name, date, price, etc) VALUES ($name,$date, $price,$etc);";
 
 		$query = $this->db->query($sql);
 		return $query;
 
+	}*/
+
+	function price_insert($name,$insertdate,$price,$etc=null){
+		$table = "price_tb";
+		$sql = "INSERT INTO " . $table . " (name, insertdate, price, etc) VALUE (?, ?, ?, ?)";
+
+		return $this->db->query($sql, [$name, $price, $etc, date("Y-m-d", $insertdate)]);
 	}
 
-	function price_delete($name)
-	{ // 정보 삭제
-		$sql = "delete from price_tb where name='$name';";
-
-		$query = $this->db->query($sql);
-		return $query;
-
-	}
 
 }

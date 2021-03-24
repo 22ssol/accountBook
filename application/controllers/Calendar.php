@@ -100,16 +100,45 @@ class calendar extends CI_Controller
 		//$this->load->view('insert_v');
 	}
 
+/*
 	public function insert($name,$date,$price,$etc=null){
 		$insert_db = array(
-			'name' => $name,
-			'date' => $date,
-			'price' => $price,
-			'etc' => $etc
+			'name' => $this->input->get($name),
+			'date' => $this->input->get($date),
+			'price' => $this->input->get($price),
+			'etc' => $this->input->get($etc)
 		);
 
-		$result = $this->calendar_model->price_list($insert_db);
-		print_r($result);
+		$this->calendar_model->price_insert($insert_db);
+		//print_r($result);
+
+	}*/
+
+	public function insert(){
+		echo $this->input->get('name');
+		echo "   ";
+		echo $this->input->get('insertdate');
+		echo "   ";
+		echo $this->input->get('price');
+		echo "   ";
+		echo $this->input->get('etc');
+
+		$insert_db = array(
+			'name' => $this->input->get('name'),
+			'insertdate' => $this->input->get('insertdate'),
+			'price' => $this->input->get('price'),
+			'etc' => $this->input->get('etc')
+		);
+
+		//print_r($insert_db);
+
+		$this->calendar_model->price_insert($insert_db);
+	}
+
+	public function testss($parameter1){
+		echo $parameter1;
+		echo $this->input->get('parameter2');
+		echo $this->input->get('parameter3');
 
 	}
 
@@ -121,4 +150,8 @@ class calendar extends CI_Controller
 	}
 
 
+
+
 }
+
+
